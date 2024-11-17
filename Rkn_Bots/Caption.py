@@ -10,7 +10,7 @@ import asyncio, re, time, sys
 from .database import total_user, getid, delete, addCap, updateCap, insert, chnl_ids
 from pyrogram.errors import FloodWait
 
-@Client.on_message(filters.private & filters.user(Rkn_Bots.ADMIN)  & filters.command(["rknusers"]))
+@Client.on_message(filters.private & filters.user(Rkn_Bots.ADMIN)  & filters.command(["users"]))
 async def all_db_users_here(client, message):
     start_t = time.time()
     rkn = await message.reply_text("Processing...")
@@ -20,7 +20,12 @@ async def all_db_users_here(client, message):
     time_taken_s = (end_t - start_t) * 1000
     await rkn.edit(text=f"**--Bot Processed--** \n\n**Bot Started UpTime:** {uptime} \n**Bot Current Ping:** `{time_taken_s:.3f} ᴍꜱ` \n**All Bot Users:** `{total_users}`")
 
-
+@Client.on_message(filters.command("set_caption") & filters.channel)
+async def givCaption(bot, message):
+    await message.reply(
+            "USE This COMMAND IN CHANNEL "
+        )
+        
 @Client.on_message(filters.private & filters.user(Rkn_Bots.ADMIN) & filters.command(["broadcast"]))
 async def broadcast(bot, message):
     if (message.reply_to_message):
