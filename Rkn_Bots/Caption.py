@@ -20,7 +20,7 @@ async def all_db_users_here(client, message):
     time_taken_s = (end_t - start_t) * 1000
     await rkn.edit(text=f"**--Bot Processed--** \n\n**Bot Started UpTime:** {uptime} \n**Bot Current Ping:** `{time_taken_s:.3f} ᴍꜱ` \n**All Bot Users:** `{total_users}`")
 
-@Client.on_message(filters.command("set_caption") & filters.channel)
+@Client.on_message(filters.command("set_caption") & filters.private)
 async def givCaption(bot, message):
     await message.reply(
             "USE This COMMAND IN CHANNEL "
