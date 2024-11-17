@@ -29,7 +29,7 @@ class Rkn_Bots(object):
     DB_URL = os.environ.get("DB_URL", "")
 
     # default caption 
-    DEF_CAP = os.environ.get("DEF_CAP", "<b><a href='https//:t.me/M0VIES_CHANNEL'>{file_name} Main Telegram Channel: @M0VIES_CHANNEL</a></b>",
+    DEF_CAP = os.environ.get("DEF_CAP", "<b><a href='https//:t.me/M0VIES_CHANNEL'>{file_name} \n\nMain Telegram Channel: @M0VIES_CHANNEL</a></b>",
     )
 
     # sticker Id
