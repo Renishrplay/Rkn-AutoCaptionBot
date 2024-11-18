@@ -138,7 +138,11 @@ async def auto_edit_caption(bot, message):
                         await message.edit(replaced_caption)
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
-                    continue
+                    # Retry editing the message
+                    try:
+                        await message.edit(replaced_caption)
+                    except Exception as e:
+                        print(f"Error editing message: {e}")
     return
 
 # Rkn Developer 
