@@ -139,8 +139,8 @@ async def auto_edit_caption(bot, message):
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
                     await auto_edit_caption(bot, message)
-                    except Exception as e:
-                        print(f"Error editing message: {e}")
+                except Exception as e:
+                    print(f"Error editing message: {e}")
     return
 
 
