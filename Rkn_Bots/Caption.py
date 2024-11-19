@@ -114,7 +114,7 @@ async def delCaption(_, msg):
         return
 
 
-@Client.on_message(filters.channel)
+
 async def auto_edit_caption(bot, message):
     chnl_id = message.chat.id
     if message.media:
@@ -138,12 +138,15 @@ async def auto_edit_caption(bot, message):
                         await message.edit(replaced_caption)
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
-                    # Retry editing the message
-                    try:
-                        await message.edit(replaced_caption)
+                    await auto_edit_caption(bot, message)
                     except Exception as e:
                         print(f"Error editing message: {e}")
     return
+
+
+@Client.on_message(filters.channel)
+async def tryauto_edit_caption(bot, message):
+    await auto_edit_caption(bot, message)
 
 # Rkn Developer 
 # Don't Remove Credit 😔
